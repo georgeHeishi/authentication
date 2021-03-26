@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once(__DIR__ . "/handlers/LogoutHandler.php");
+require_once(__DIR__ . "/handlers/logoutHandler.php");
 
 
 if (isset($_SESSION["type"])) {

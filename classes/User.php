@@ -8,6 +8,7 @@ class User
     private string $surname;
     private string $email;
     private string $password;
+    private string $secret;
 
     /**
      * @return int
@@ -88,4 +89,21 @@ class User
     {
         $this->password = $password;
     }
+
+    /**
+     * @return string
+     */
+    public function getSecret(): string
+    {
+        return $this->secret;
+    }
+
+    /**
+     * @param string $secret
+     */
+    public function setSecret(string $secret): void
+    {
+        $this->secret = $secret;
+    }
+
 }
