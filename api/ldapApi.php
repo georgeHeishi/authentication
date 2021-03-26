@@ -1,6 +1,6 @@
 <?php
 require_once (__DIR__. "/../classes/LoginAudit.php");
-require_once (__DIR__. "/../classes/cotrollers/LoginAuditController.php");
+require_once (__DIR__ . "/../classes/controllers/LoginAuditController.php");
 
 $username = $_POST['username'] ?? null;
 $password = $_POST['password'] ?? null;

@@ -2,9 +2,9 @@
 session_start();
 require_once(__DIR__ . "/google-api/vendor/autoload.php");
 require_once (__DIR__. "/../classes/LoginAudit.php");
-require_once (__DIR__. "/../classes/cotrollers/LoginAuditController.php");
+require_once (__DIR__ . "/../classes/controllers/LoginAuditController.php");
 
-$redirect_uri = 'https://wt98.fei.stuba.sk/authentication/api/oauth2.php';
+$redirect_uri = 'https://wt98.fei.stuba.sk/authentication/api/oauth2Api.php';
 
 $client = new Google_Client();
 $client->setAuthConfig('/home/xlapcak/configs/credentials.json');
@@ -48,7 +48,6 @@ if ($client->getAccessToken()) {
         $loginAudit->setEmail($UserProfile['email']);
         $loginAudit->setTime(date("Y-m-d H:i:s"));
         $loginAudit->setLoginMethod("oauth2");
-        $_SESSION["tmp"] = $loginAudit->getEmail() . " - " . $loginAudit->getTime() . " - " . $loginAudit->getLoginMethod();
         $loginAuditController->insertAudit($loginAudit);
         header("Location: https://wt98.fei.stuba.sk/authentication/");
     } else {
