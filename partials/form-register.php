@@ -8,7 +8,7 @@ $secret = $ga->createSecret();
 $qrCodeUrl = $ga->getQRCodeGoogleUrl($websiteTitle, $secret);
 
 ?>
-<form method="post" id="register-form" action="/authentication/api/registerApi.php">
+<form method="post" id="register-form" action="/authentication/api/registerApi.php" class="p-4 border rounded" style="display: none">
     <div class="row mb-2">
         <div class="form-group col">
             <label for="regName">Meno</label>
@@ -49,17 +49,14 @@ $qrCodeUrl = $ga->getQRCodeGoogleUrl($websiteTitle, $secret);
             <input type="password" name="password-verify" id="regPassword-verify" required>
         </div>
     </div>
+    <input type="hidden" name="secret" id="regSecret" value="<?php echo $secret ?>">
     <div class="row mb-2">
-        <div class="form-group col">
-            <p>Overovací kľúč: <?php echo $secret; ?></p>
-            <input type="hidden" name="secret" id="regSecret" value="<?php echo $secret ?>">
-        </div>
-    </div>
-    <div class="row mb-2">
-        <div class="form-group col">
+        <div class="form-group text-center">
             <span>Oskenujte QR do aplikácie Google Authentificator.</span>
             <br><img src="<?php echo $qrCodeUrl; ?>" alt="QR code"/>
         </div>
     </div>
-    <button type="submit" class="btn btn-light mt-3">Registrovať</button>
+    <div class="row mb-2">
+        <button type="submit" class="btn btn-secondary mt-3">Registrovať</button>
+    </div>
 </form>

@@ -71,4 +71,12 @@ class LoginAudit
     {
         $this->login_method = $login_method;
     }
+    public function toArray(){
+        return array(
+            "id" => $this->id,
+            "email" => $this->email,
+            "time" => $this->time,
+            "login_method" => $this->login_method
+        );
+    }
 }
